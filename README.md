@@ -1,5 +1,36 @@
 # 230915-CPM-MS-REL-bitstream-decoder
 
+rel2relb.c IN.rel OUT.relb - converts REL bitstream to bytestream
+
+relb2relt.c IN.relb OUT.relt - converts REL bytestrem to quickly drafted text format according to spec
+
+---
+
+example result on CPMLDR.REL:
+
+SN2 CPMLDR
+
+SVA A 0000
+
+SVD P BD1E
+
+RB 3E
+
+RB 0F
+
+RB D3
+
+RB 10
+
+RB 11
+
+...
+
+...
+
+
+---
+
 REL file specification
 https://seasip.info/Cpm/rel.html
 
