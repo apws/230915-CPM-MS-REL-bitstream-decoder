@@ -2,7 +2,7 @@
 
 rel2relb.c IN.rel OUT.relb - converts REL bitstream to bytestream
 
-relb2relt.c IN.relb OUT.relt - converts REL bytestrem to quickly drafted text format according to spec
+relb2relt.c IN.relb OUT.relt - converts REL bytestream to quickly drafted text format according to spec
 
 ---
 
@@ -28,6 +28,29 @@ RB 11
 
 ...
 
+RB 02
+
+RB 82
+
+RB 00
+
+RB 84
+
+RB F5
+
+RB 87
+
+SVN6 P 1812 @MXTPA
+
+SVE A 0000
+
+RB 04
+
+RC 8000
+
+RB 00
+
+RB 00
 
 ---
 
