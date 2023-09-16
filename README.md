@@ -25,13 +25,13 @@ https://seasip.info/Cpm/rel.html
 
 
  - 00 *SPUBLIC aaaaaaaa    - ???
- - 01 *SCOMMON aaaaaaaa    - ??? shared? sseg?
+ - 01 *SCOMMON aaaaaaaa    - ???
  - 02 *SMODULE aaaaaaaa    - ??? module start
 
  - 03 *S3 UNUSED
  - 04 *S4 UNUSED
 
- - 05 *SCOMMSIZE t nnnn aaaaaaaa   - ??? shared? sseg?
+ - 05 *SCOMMSIZE t nnnn aaaaaaaa   - ???
  - 06 *SEXTRN t nnnn aaaaaaaa      - ???
  - 07 *SGLOBL t nnnn aaaaaaaa      - ???
 
@@ -39,7 +39,7 @@ https://seasip.info/Cpm/rel.html
 
  - 09 *SOFFSET t nnnn      - ???
  - 10 *SDATSSIZE t nnnn    - ???
- - 11 *SSEG t nnnn         - ??? P=cseg, D=dseg, C=sseg ???
+ - 11 *SSEG t nnnn         - ??? P=cseg, D=dseg, C=sseg ??? (NO, sseg=stack, eseg=extra ...)
  - 12 *SLOCAL t nnnn       - ??? (really?)
  - 13 *SCODESIZE t nnnn    - ??? (prog/text ?)
  - 14 *SEND t nnnn         - ??? module end
