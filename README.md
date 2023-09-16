@@ -20,9 +20,13 @@ https://seasip.info/Cpm/rel.html
 
 
 *RB nn         - Regular Byte
+
 *RP nnnn       - Regular Program relaive
+
 *RD nnnn       - Regular Data relative
+
 *RC nnnn       - Regular Common relative
+
 
 *SPUBLIC aaaaaaaa    - ???
 
