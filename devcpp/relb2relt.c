@@ -75,13 +75,13 @@ int main(int argc, char* argv[])
                             case 0: //0000
                                 {
                                     char* name = GetName();
-                                    fprintf(_frelt_, "*SPUBLIC %s\n", name); //just after the module name at the begin
+                                    fprintf(_frelt_, "*SPUBLIC %s\n", name); //or DECLARE/SYMBOL? //just after the module name at the begin
                                     break;
                                 }
                             case 1: //0001
                                 {
                                     char* name = GetName();
-                                    fprintf(_frelt_, "*SCOMMON %s\n", name); // ???????? means it SHARED = sseg ???
+                                    fprintf(_frelt_, "*SCOMMON %s\n", name); // ??? common BLOCK, not segment
                                     break;
                                 }
                             case 2: //0010
@@ -105,7 +105,7 @@ int main(int argc, char* argv[])
                                     char type = GetTypeChar();
                                     int addr = GetWord();
                                     char* name = GetName();
-                                    snprintf(line, 40, "*SCOMMSIZE %c %04X %s\n", type, addr, name); // SHARED? sseg ???
+                                    snprintf(line, 40, "*SCOMMSIZE %c %04X %s\n", type, addr, name); // common BLOCK size
                                     fprintf(_frelt_, line);
                                     break;
                                 }
@@ -123,7 +123,7 @@ int main(int argc, char* argv[])
                                     char type = GetTypeChar();
                                     int addr = GetWord();
                                     char* name = GetName();
-                                    snprintf(line, 40, "*SGLOBL %c %04X %s\n", type, addr, name); //at the end, for each public
+                                    snprintf(line, 40, "*SGLOBL %c %04X %s\n", type, addr, name); //or PUBLIC? //at the end, for each public
                                     fprintf(_frelt_, line);
 
                                     break;
@@ -146,7 +146,7 @@ int main(int argc, char* argv[])
                                 {
                                     char type = GetTypeChar();
                                     int addr = GetWord();
-                                    snprintf(line, 20, "*SDATASIZE %c %04X\n", type, addr); //after publics (A here, okay)
+                                    snprintf(line, 20, "*SDATASIZE %c %04X\n", type, addr); //after publics (A here, okay) // module data size
                                     fprintf(_frelt_, line);
                                     break;
                                 }
@@ -154,7 +154,7 @@ int main(int argc, char* argv[])
                                 {
                                     char type = GetTypeChar();
                                     int addr = GetWord();
-                                    snprintf(line, 20, "*SSEG %c %04X\n", type, addr); //cseg (prog/text) or dseg (or common?)
+                                    snprintf(line, 20, "*SSEG %c %04X\n", type, addr); //or SECTION? //cseg (prog/text) or dseg
                                     fprintf(_frelt_, line);
 
                                     break;
@@ -163,7 +163,7 @@ int main(int argc, char* argv[])
                                 {
                                     char type = GetTypeChar();
                                     int addr = GetWord();
-                                    snprintf(line, 20, "*SLOCAL %c %04X\n", type, addr); //???? LOCAL, really (??? chain address local)
+                                    snprintf(line, 20, "*SLOCAL %c %04X\n", type, addr); //?? NOT SURE ...  LOCAL, really (??? chain address local)
                                     fprintf(_frelt_, line);
 
                                     break;
@@ -172,7 +172,7 @@ int main(int argc, char* argv[])
                                 {
                                     char type = GetTypeChar();
                                     int addr = GetWord();
-                                    snprintf(line, 20, "*SCODESIZE %c %04X\n", type, addr); //after publics //prog or common ??????? (here is P, may be also C as common? why not A if its SIZE ???)
+                                    snprintf(line, 20, "*SCODESIZE %c %04X\n", type, addr); //after publics // module code size (here is P, may be also C as common? why not A if its SIZE ???)
                                     fprintf(_frelt_, line);
                                     break;
                                 }
@@ -188,7 +188,7 @@ int main(int argc, char* argv[])
                                 {
                                     //char type = GetTypeChar();
                                     //int addr = GetWord();
-                                    snprintf(line, 20, "*SEOF\n"); //???? some error? is MISSING in our files ??? (NO, MUST BE AT THE END OF FILE ???)
+                                    snprintf(line, 20, "*SEOF\n"); //???? some error? is MISSING in our files ??? (NO, MUST BE AT THE END OF FILE, specific byte??, rest ignored)
                                     fprintf(_frelt_, line);
                                     break;
                                 }
@@ -206,7 +206,7 @@ int main(int argc, char* argv[])
                         break;
                     }
 
-                case 2: //10 data relative (dseg)
+                case 2: //10 data relative (dseg/data)
                     {
                         int itemW = GetWord();
                         char hex4[5];
@@ -215,7 +215,7 @@ int main(int argc, char* argv[])
                         break;
                     }
 
-                case 3: //11 common relative (??? how is this identified? is cseg "code" (and program = text?) or "common" ???
+                case 3: //11 common relative (??? related ONLY to common BLOCK ???
                     {
                         int itemW = GetWord();
                         char hex4[5];
