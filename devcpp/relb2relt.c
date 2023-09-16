@@ -75,29 +75,29 @@ int main(int argc, char* argv[])
                             case 0: //0000
                                 {
                                     char* name = GetName();
-                                    fprintf(_frelt_, "*SPUBLIC %s\n", name);
+                                    fprintf(_frelt_, "*SPUBLIC %s\n", name); //just after the module name at the begin
                                     break;
                                 }
                             case 1: //0001
                                 {
                                     char* name = GetName();
-                                    fprintf(_frelt_, "*SCOMMON %s\n", name);
+                                    fprintf(_frelt_, "*SCOMMON %s\n", name); // ???????? means it SHARED = sseg ???
                                     break;
                                 }
                             case 2: //0010
                                 {
                                     char* name = GetName();
-                                    fprintf(_frelt_, "*SMODULE %s\n", name);
+                                    fprintf(_frelt_, "*SMODULE %s\n", name); //just one at the begin (NO, may be MORE MODULES !!!)
                                     break;
                                 }
                             case 3: //0011 unused
                                 {
-                                    fprintf(_frelt_, "*SE3 UNUSED\n");
+                                    fprintf(_frelt_, "*S3 UNUSED\n");
                                     break;
                                 }
                             case 4: //0100 unused
                                 {
-                                    fprintf(_frelt_, "*SE4 UNUSED\n");
+                                    fprintf(_frelt_, "*S4 UNUSED\n");
                                     break;
                                 }
                             case 5: //0101
@@ -105,7 +105,7 @@ int main(int argc, char* argv[])
                                     char type = GetTypeChar();
                                     int addr = GetWord();
                                     char* name = GetName();
-                                    snprintf(line, 40, "*SCSIZE %c %04X %s\n", type, addr, name);
+                                    snprintf(line, 40, "*SCOMMSIZE %c %04X %s\n", type, addr, name); // SHARED? sseg ???
                                     fprintf(_frelt_, line);
                                     break;
                                 }
@@ -114,7 +114,7 @@ int main(int argc, char* argv[])
                                     char type = GetTypeChar();
                                     int addr = GetWord();
                                     char* name = GetName();
-                                    snprintf(line, 40, "*SEXTRN %c %04X %s\n", type, addr, name);
+                                    snprintf(line, 40, "*SEXTRN %c %04X %s\n", type, addr, name); //at the end (chain address extern)
                                     fprintf(_frelt_, line);
                                     break;
                                 }
@@ -123,21 +123,21 @@ int main(int argc, char* argv[])
                                     char type = GetTypeChar();
                                     int addr = GetWord();
                                     char* name = GetName();
-                                    snprintf(line, 40, "*SPENTRY %c %04X %s\n", type, addr, name);
+                                    snprintf(line, 40, "*SGLOBL %c %04X %s\n", type, addr, name); //at the end, for each public
                                     fprintf(_frelt_, line);
 
                                     break;
                                 }
                             case 8: //1000 unused
                                 {
-                                    fprintf(_frelt_, "*SE8 UNUSED\n");
+                                    fprintf(_frelt_, "*S8 UNUSED\n");
                                     break;
                                 }
                             case 9: //1001
                                 {
                                     char type = GetTypeChar();
                                     int addr = GetWord();
-                                    snprintf(line, 20, "*SEOFFSET %c %04X\n", type, addr);
+                                    snprintf(line, 20, "*SOFFSET %c %04X\n", type, addr); //before address reference
                                     fprintf(_frelt_, line);
 
                                     break;
@@ -146,7 +146,7 @@ int main(int argc, char* argv[])
                                 {
                                     char type = GetTypeChar();
                                     int addr = GetWord();
-                                    snprintf(line, 20, "*SDSIZE %c %04X\n", type, addr);
+                                    snprintf(line, 20, "*SDATASIZE %c %04X\n", type, addr); //after publics (A here, okay)
                                     fprintf(_frelt_, line);
                                     break;
                                 }
@@ -154,7 +154,7 @@ int main(int argc, char* argv[])
                                 {
                                     char type = GetTypeChar();
                                     int addr = GetWord();
-                                    snprintf(line, 20, "*SLOCATION %c %04X\n", type, addr);
+                                    snprintf(line, 20, "*SSEG %c %04X\n", type, addr); //cseg (prog/text) or dseg (or common?)
                                     fprintf(_frelt_, line);
 
                                     break;
@@ -163,7 +163,7 @@ int main(int argc, char* argv[])
                                 {
                                     char type = GetTypeChar();
                                     int addr = GetWord();
-                                    snprintf(line, 20, "*SVC %c %04X\n", type, addr);
+                                    snprintf(line, 20, "*SLOCAL %c %04X\n", type, addr); //???? LOCAL, really (??? chain address local)
                                     fprintf(_frelt_, line);
 
                                     break;
@@ -172,7 +172,7 @@ int main(int argc, char* argv[])
                                 {
                                     char type = GetTypeChar();
                                     int addr = GetWord();
-                                    snprintf(line, 20, "*SMSIZE %c %04X\n", type, addr);
+                                    snprintf(line, 20, "*SCODESIZE %c %04X\n", type, addr); //after publics //prog or common ??????? (here is P, may be also C as common? why not A if its SIZE ???)
                                     fprintf(_frelt_, line);
                                     break;
                                 }
@@ -180,7 +180,7 @@ int main(int argc, char* argv[])
                                 {
                                     char type = GetTypeChar();
                                     int addr = GetWord();
-                                    snprintf(line, 20, "*SMEND %c %04X\n", type, addr);
+                                    snprintf(line, 20, "*SEND %c %04X\n", type, addr); //just one at the end (NO, at the each MODULE END !!!)
                                     fprintf(_frelt_, line);
                                     break;
                                 }
@@ -188,7 +188,7 @@ int main(int argc, char* argv[])
                                 {
                                     //char type = GetTypeChar();
                                     //int addr = GetWord();
-                                    snprintf(line, 20, "*SEOF\n");
+                                    snprintf(line, 20, "*SEOF\n"); //???? some error? is MISSING in our files ??? (NO, MUST BE AT THE END OF FILE ???)
                                     fprintf(_frelt_, line);
                                     break;
                                 }
@@ -197,7 +197,7 @@ int main(int argc, char* argv[])
                         break;
                     }
 
-                case 1: //01 program relative
+                case 1: //01 program relative (cseg/text ??)
                     {
                         int itemW = GetWord();
                         char hex4[5];
@@ -206,7 +206,7 @@ int main(int argc, char* argv[])
                         break;
                     }
 
-                case 2: //10 data relative
+                case 2: //10 data relative (dseg)
                     {
                         int itemW = GetWord();
                         char hex4[5];
@@ -215,7 +215,7 @@ int main(int argc, char* argv[])
                         break;
                     }
 
-                case 3: //11 common relative
+                case 3: //11 common relative (??? how is this identified? is cseg "code" (and program = text?) or "common" ???
                     {
                         int itemW = GetWord();
                         char hex4[5];
