@@ -45,3 +45,7 @@ https://seasip.info/Cpm/rel.html
  - 14 *SEND t nnnn         - ??? module end
  - 15 *SEOF                - ???
 
+---
+
+interesting resource, Nestor80 assmebler in C#:
+https://github.com/Konamiman/Nestor80/blob/master/docs/LanguageReference.md
