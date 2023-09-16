@@ -75,29 +75,29 @@ int main(int argc, char* argv[])
                             case 0: //0000
                                 {
                                     char* name = GetName();
-                                    fprintf(_frelt_, "SN0 %s\n", name);
+                                    fprintf(_frelt_, "*SPUBLIC %s\n", name);
                                     break;
                                 }
                             case 1: //0001
                                 {
                                     char* name = GetName();
-                                    fprintf(_frelt_, "SN1 %s\n", name);
+                                    fprintf(_frelt_, "*SCOMMON %s\n", name);
                                     break;
                                 }
                             case 2: //0010
                                 {
                                     char* name = GetName();
-                                    fprintf(_frelt_, "SN2 %s\n", name);
+                                    fprintf(_frelt_, "*SMODULE %s\n", name);
                                     break;
                                 }
                             case 3: //0011 unused
                                 {
-                                    fprintf(_frelt_, "SE3 UNUSED\n");
+                                    fprintf(_frelt_, "*SE3 UNUSED\n");
                                     break;
                                 }
                             case 4: //0100 unused
                                 {
-                                    fprintf(_frelt_, "SE4 UNUSED\n");
+                                    fprintf(_frelt_, "*SE4 UNUSED\n");
                                     break;
                                 }
                             case 5: //0101
@@ -105,7 +105,7 @@ int main(int argc, char* argv[])
                                     char type = GetTypeChar();
                                     int addr = GetWord();
                                     char* name = GetName();
-                                    snprintf(line, 40, "SVN5 %c %04X %s\n", type, addr, name);
+                                    snprintf(line, 40, "*SCSIZE %c %04X %s\n", type, addr, name);
                                     fprintf(_frelt_, line);
                                     break;
                                 }
@@ -114,7 +114,7 @@ int main(int argc, char* argv[])
                                     char type = GetTypeChar();
                                     int addr = GetWord();
                                     char* name = GetName();
-                                    snprintf(line, 40, "SVN6 %c %04X %s\n", type, addr, name);
+                                    snprintf(line, 40, "*SEXTRN %c %04X %s\n", type, addr, name);
                                     fprintf(_frelt_, line);
                                     break;
                                 }
@@ -123,21 +123,21 @@ int main(int argc, char* argv[])
                                     char type = GetTypeChar();
                                     int addr = GetWord();
                                     char* name = GetName();
-                                    snprintf(line, 40, "SVN7 %c %04X %s\n", type, addr, name);
+                                    snprintf(line, 40, "*SPENTRY %c %04X %s\n", type, addr, name);
                                     fprintf(_frelt_, line);
 
                                     break;
                                 }
                             case 8: //1000 unused
                                 {
-                                    fprintf(_frelt_, "SE8 UNUSED\n");
+                                    fprintf(_frelt_, "*SE8 UNUSED\n");
                                     break;
                                 }
                             case 9: //1001
                                 {
                                     char type = GetTypeChar();
                                     int addr = GetWord();
-                                    snprintf(line, 20, "SV9 %c %04X\n", type, addr);
+                                    snprintf(line, 20, "*SEOFFSET %c %04X\n", type, addr);
                                     fprintf(_frelt_, line);
 
                                     break;
@@ -146,7 +146,7 @@ int main(int argc, char* argv[])
                                 {
                                     char type = GetTypeChar();
                                     int addr = GetWord();
-                                    snprintf(line, 20, "SVA %c %04X\n", type, addr);
+                                    snprintf(line, 20, "*SDSIZE %c %04X\n", type, addr);
                                     fprintf(_frelt_, line);
                                     break;
                                 }
@@ -154,7 +154,7 @@ int main(int argc, char* argv[])
                                 {
                                     char type = GetTypeChar();
                                     int addr = GetWord();
-                                    snprintf(line, 20, "SVB %c %04X\n", type, addr);
+                                    snprintf(line, 20, "*SLOCATION %c %04X\n", type, addr);
                                     fprintf(_frelt_, line);
 
                                     break;
@@ -163,7 +163,7 @@ int main(int argc, char* argv[])
                                 {
                                     char type = GetTypeChar();
                                     int addr = GetWord();
-                                    snprintf(line, 20, "SVC %c %04X\n", type, addr);
+                                    snprintf(line, 20, "*SVC %c %04X\n", type, addr);
                                     fprintf(_frelt_, line);
 
                                     break;
@@ -172,7 +172,7 @@ int main(int argc, char* argv[])
                                 {
                                     char type = GetTypeChar();
                                     int addr = GetWord();
-                                    snprintf(line, 20, "SVD %c %04X\n", type, addr);
+                                    snprintf(line, 20, "*SMSIZE %c %04X\n", type, addr);
                                     fprintf(_frelt_, line);
                                     break;
                                 }
@@ -180,15 +180,15 @@ int main(int argc, char* argv[])
                                 {
                                     char type = GetTypeChar();
                                     int addr = GetWord();
-                                    snprintf(line, 20, "SVE %c %04X\n", type, addr);
+                                    snprintf(line, 20, "*SMEND %c %04X\n", type, addr);
                                     fprintf(_frelt_, line);
                                     break;
                                 }
                             case 15: //1111
                                 {
-                                    char type = GetTypeChar();
-                                    int addr = GetWord();
-                                    snprintf(line, 20, "SVF %c %04X\n", type, addr);
+                                    //char type = GetTypeChar();
+                                    //int addr = GetWord();
+                                    snprintf(line, 20, "*SEOF\n");
                                     fprintf(_frelt_, line);
                                     break;
                                 }
@@ -202,7 +202,7 @@ int main(int argc, char* argv[])
                         int itemW = GetWord();
                         char hex4[5];
                         snprintf(hex4, 4, "%04X", itemW);
-                        fprintf(_frelt_, "RP %s\n", hex4);
+                        fprintf(_frelt_, "*RP %s\n", hex4);
                         break;
                     }
 
@@ -211,7 +211,7 @@ int main(int argc, char* argv[])
                         int itemW = GetWord();
                         char hex4[5];
                         snprintf(hex4, 4, "%04X", itemW);
-                        fprintf(_frelt_, "RD %s\n", hex4);
+                        fprintf(_frelt_, "*RD %s\n", hex4);
                         break;
                     }
 
@@ -220,7 +220,7 @@ int main(int argc, char* argv[])
                         int itemW = GetWord();
                         char hex4[5];
                         snprintf(hex4, 4, "%04X", itemW);
-                        fprintf(_frelt_, "RC %s\n", hex4);
+                        fprintf(_frelt_, "*RC %s\n", hex4);
                         break;
                     }
             }
@@ -233,7 +233,7 @@ int main(int argc, char* argv[])
             int itemB = GetByte();
             char hex2[3];
             snprintf(hex2, 2, "%02X", itemB);
-            fprintf(_frelt_, "RB %s\n", hex2);
+            fprintf(_frelt_, "*RB %s\n", hex2);
         }
 
     }

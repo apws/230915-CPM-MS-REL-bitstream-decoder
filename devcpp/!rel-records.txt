@@ -2,34 +2,35 @@
 REL file specification
 https://seasip.info/Cpm/rel.html
 
-- special items not named logically, only by format and number !!!
-- NOT CLEAR HOW TO NAME THEM ALL
-- Rx is easily findable
-- Sx is easily findable
+- SOME special items not named logically, only by format and number !!!
+- SOME named, somehow, but NOT CLEAR HOW TO NAME THEM ALL
+- *Rx   is easily findable
+- *Sxxx is easily findable
 
 
-RB nn         - Regular Byte
-RP nnnn       - Regular Program relaive
-RD nnnn       - Regular Data relative
-RC            - Regular Common relative
+*RB nn         - Regular Byte
+*RP nnnn       - Regular Program relaive
+*RD nnnn       - Regular Data relative
+*RC nnnn       - Regular Common relative
 
-SN0 aaaaaaaa  - Special Name
-SN1 aaaaaaaa  -
-SN2 aaaaaaaa  -
+*SPUBLIC aaaaaaaa    - ???
+*SCOMMON aaaaaaaa    - ???
+*SMODULE aaaaaaaa    - ???
 
-SE3 UNUSED
-SE4 UNUSED
+*SE3 UNUSED
+*SE4 UNUSED
 
-SVN5 t nnnn aaaaaaaa - Special Value Name
-SVN6 t nnnn aaaaaaaa - 
-SVN7 t nnnn aaaaaaaa - 
+*SCSIZE t nnnn aaaaaaaa    - ???
+*SEXTRN t nnnn aaaaaaaa    - ???
+*SPENTRY t nnnn aaaaaaaa   - ???
 
-SE8 UNUSED
+*SE8 UNUSED
 
-SV9 t nnnn    - Special Value
-SVA t nnnn    -
-SVB t nnnn    -
-SVC t nnnn    -
-SVD t nnnn    -
-SVE t nnnn    -
-SVF t nnnn    -
+*SEOFFSET t nnnn     - ???
+*SDSIZE t nnnn       - ???
+*SLOCATION t nnnn    - ???
+*SVC t nnnn          - ???
+*SMSIZE t nnnn       - ???
+*SMEND t nnnn        - ???
+*SEOF                - ???
+

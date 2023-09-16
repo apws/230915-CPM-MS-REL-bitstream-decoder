@@ -6,100 +6,57 @@ relb2relt.c IN.relb OUT.relt - converts REL bytestream to quickly drafted text f
 
 ---
 
-example result on CPMLDR.REL:
-
-SN2 CPMLDR
-
-SVA A 0000
-
-SVD P BD1E
-
-RB 3E
-
-RB 0F
-
-RB D3
-
-RB 10
-
-RB 11
-
-...
-
-...
-
-RB 02
-
-RB 82
-
-RB 00
-
-RB 84
-
-RB F5
-
-RB 87
-
-SVN6 P 1812 @MXTPA
-
-SVE A 0000
-
-RB 04
-
-RC 8000
-
-RB 00
-
-RB 00
+example result is in CPMLDR.RELT and BIOSKRNL.RELT
 
 ---
 
 REL file specification
 https://seasip.info/Cpm/rel.html
 
-- special items not named logically, only by format and number !!!
-- NOT CLEAR HOW TO NAME THEM ALL
-- Rx is easily findable
-- Sx is easily findable
+- SOME special items not named logically, only by format and number !!!
+- SOME named, somehow, but NOT CLEAR HOW TO NAME THEM ALL
+- *Rx   is easily findable
+- *Sxxx is easily findable
 
 
-RB nn         - Regular Byte
+*RB nn         - Regular Byte
+*RP nnnn       - Regular Program relaive
+*RD nnnn       - Regular Data relative
+*RC nnnn       - Regular Common relative
 
-RP nnnn       - Regular Program relaive
+*SPUBLIC aaaaaaaa    - ???
 
-RD nnnn       - Regular Data relative
+*SCOMMON aaaaaaaa    - ???
 
-RC            - Regular Common relative
+*SMODULE aaaaaaaa    - ???
 
 
-SN0 aaaaaaaa  - Special Name
+*SE3 UNUSED
 
-SN1 aaaaaaaa  -
+*SE4 UNUSED
 
-SN2 aaaaaaaa  -
 
-SE3 UNUSED
+*SCSIZE t nnnn aaaaaaaa    - ???
 
-SE4 UNUSED
+*SEXTRN t nnnn aaaaaaaa    - ???
 
-SVN5 t nnnn aaaaaaaa - Special Value Name
+*SPENTRY t nnnn aaaaaaaa   - ???
 
-SVN6 t nnnn aaaaaaaa - 
 
-SVN7 t nnnn aaaaaaaa - 
+*SE8 UNUSED
 
-SE8 UNUSED
 
-SV9 t nnnn    - Special Value
+*SEOFFSET t nnnn     - ???
 
-SVA t nnnn    -
+*SDSIZE t nnnn       - ???
 
-SVB t nnnn    -
+*SLOCATION t nnnn    - ???
 
-SVC t nnnn    -
+*SVC t nnnn          - ???
 
-SVD t nnnn    -
+*SMSIZE t nnnn       - ???
 
-SVE t nnnn    -
+*SMEND t nnnn        - ???
 
-SVF t nnnn    -
+*SEOF                - ???
+
