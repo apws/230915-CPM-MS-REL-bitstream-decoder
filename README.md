@@ -39,7 +39,7 @@ https://seasip.info/Cpm/rel.html
 
  - 09 *SOFFSET t nnnn      - ???
  - 10 *SDATSSIZE t nnnn    - ???
- - 11 *SSEG t nnnn         - ???
+ - 11 *SSEG t nnnn         - ??? P=cseg, D=dseg, C=sseg ???
  - 12 *SLOCAL t nnnn       - ??? (really?)
  - 13 *SCODESIZE t nnnn    - ??? (prog/text ?)
  - 14 *SEND t nnnn         - ??? module end
