@@ -49,3 +49,7 @@ https://seasip.info/Cpm/rel.html
 
 interesting resource, Nestor80 assmebler in C#:
 https://github.com/Konamiman/Nestor80/blob/master/docs/LanguageReference.md
+
+
+yes, here is REL format described in greater detail, as Nestor80 bases on it:
+https://github.com/Konamiman/Nestor80/blob/master/docs/RelocatableFileFormat.md
