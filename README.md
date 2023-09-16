@@ -6,61 +6,42 @@ relb2relt.c IN.relb OUT.relt - converts REL bytestream to quickly drafted text f
 
 ---
 
-example result is in CPMLDR.RELT and BIOSKRNL.RELT
+example result is mostly in BIOSKRNL.RELT
 
 ---
 
 REL file specification
 https://seasip.info/Cpm/rel.html
 
-- SOME special items not named logically, only by format and number !!!
-- SOME named, somehow, but NOT CLEAR HOW TO NAME THEM ALL
+- tried to name items by common asm/linker terms, not sure yet
 - *Rx   is easily findable
 - *Sxxx is easily findable
 
 
-*RB nn         - Regular Byte
-
-*RP nnnn       - Regular Program relaive
-
-*RD nnnn       - Regular Data relative
-
-*RC nnnn       - Regular Common relative
+ - 00 *RB nn         - Regular Byte
+ - 01 *RP nnnn       - Regular Program relaive
+ - 02 *RD nnnn       - Regular Data relative
+ - 03 *RC nnnn       - Regular Common relative
 
 
-*SPUBLIC aaaaaaaa    - ???
+ - 00 *SPUBLIC aaaaaaaa    - ???
+ - 01 *SCOMMON aaaaaaaa    - ??? shared? sseg?
+ - 02 *SMODULE aaaaaaaa    - ??? module start
 
-*SCOMMON aaaaaaaa    - ???
+ - 03 *S3 UNUSED
+ - 04 *S4 UNUSED
 
-*SMODULE aaaaaaaa    - ???
+ - 05 *SCOMMSIZE t nnnn aaaaaaaa   - ??? shared? sseg?
+ - 06 *SEXTRN t nnnn aaaaaaaa      - ???
+ - 07 *SGLOBL t nnnn aaaaaaaa      - ???
 
+ - 08 *S8 UNUSED
 
-*SE3 UNUSED
-
-*SE4 UNUSED
-
-
-*SCSIZE t nnnn aaaaaaaa    - ???
-
-*SEXTRN t nnnn aaaaaaaa    - ???
-
-*SPENTRY t nnnn aaaaaaaa   - ???
-
-
-*SE8 UNUSED
-
-
-*SEOFFSET t nnnn     - ???
-
-*SDSIZE t nnnn       - ???
-
-*SLOCATION t nnnn    - ???
-
-*SVC t nnnn          - ???
-
-*SMSIZE t nnnn       - ???
-
-*SMEND t nnnn        - ???
-
-*SEOF                - ???
+ - 09 *SOFFSET t nnnn      - ???
+ - 10 *SDATSSIZE t nnnn    - ???
+ - 11 *SSEG t nnnn         - ???
+ - 12 *SLOCAL t nnnn       - ??? (really?)
+ - 13 *SCODESIZE t nnnn    - ??? (prog/text ?)
+ - 14 *SEND t nnnn         - ??? module end
+ - 15 *SEOF                - ???
 

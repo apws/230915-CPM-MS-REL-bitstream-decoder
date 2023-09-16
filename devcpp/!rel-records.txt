@@ -2,8 +2,7 @@
 REL file specification
 https://seasip.info/Cpm/rel.html
 
-- SOME special items not named logically, only by format and number !!!
-- SOME named, somehow, but NOT CLEAR HOW TO NAME THEM ALL
+- tried to name items by common asm/linker terms, not sure yet
 - *Rx   is easily findable
 - *Sxxx is easily findable
 
