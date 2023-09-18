@@ -114,7 +114,7 @@ int main(int argc, char* argv[])
                                     char type = GetTypeChar();
                                     int addr = GetWord();
                                     char* name = GetName();
-                                    snprintf(line, 40, "*SEXTRN %-7s %c %04X\n", name, type, addr); //at the end (chain address extern)
+                                    snprintf(line, 40, "*SEXTRN  %-7s %c %04X\n", name, type, addr); //at the end (chain address extern)
                                     fprintf(_frelt_, line);
                                     break;
                                 }
