@@ -75,7 +75,7 @@ int main(int argc, char* argv[])
                             case 0: //0000
                                 {
                                     char* name = GetName();
-                                    fprintf(_frelt_, "*SGLOBL %s\n", name); //or DECLARE/SYMBOL? //just after the module name at the begin
+                                    fprintf(_frelt_, "*SGLOBAL %s\n", name); //or DECLARE/SYMBOL? //just after the module name at the begin
                                     break;
                                 }
                             case 1: //0001
@@ -114,7 +114,7 @@ int main(int argc, char* argv[])
                                     char type = GetTypeChar();
                                     int addr = GetWord();
                                     char* name = GetName();
-                                    snprintf(line, 40, "*SEXTRN  %-7s %c %04X\n", name, type, addr); //at the end (chain address extern)
+                                    snprintf(line, 40, "*SEXTERN %-7s %c %04X\n", name, type, addr); //at the end (chain address extern)
                                     fprintf(_frelt_, line);
                                     break;
                                 }
