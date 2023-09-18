@@ -105,7 +105,7 @@ int main(int argc, char* argv[])
                                     char type = GetTypeChar();
                                     int addr = GetWord();
                                     char* name = GetName();
-                                    snprintf(line, 40, "*SCOMMSIZE %c %04X %s\n", type, addr, name); // common BLOCK size
+                                    snprintf(line, 40, "*SCOMMSIZE %-7s %c %04X\n", name, type, addr); // common BLOCK size
                                     fprintf(_frelt_, line);
                                     break;
                                 }
@@ -114,7 +114,7 @@ int main(int argc, char* argv[])
                                     char type = GetTypeChar();
                                     int addr = GetWord();
                                     char* name = GetName();
-                                    snprintf(line, 40, "*SEXTRN %c %04X %s\n", type, addr, name); //at the end (chain address extern)
+                                    snprintf(line, 40, "*SEXTRN %-7s %c %04X\n", name, type, addr); //at the end (chain address extern)
                                     fprintf(_frelt_, line);
                                     break;
                                 }
@@ -123,7 +123,7 @@ int main(int argc, char* argv[])
                                     char type = GetTypeChar();
                                     int addr = GetWord();
                                     char* name = GetName();
-                                    snprintf(line, 40, "*SGLOBL %c %04X %s\n", type, addr, name); //or PUBLIC? //at the end, for each public
+                                    snprintf(line, 40, "*SGLOBL %-7s %c %04X\n", name, type, addr); //or PUBLIC? //at the end, for each public
                                     fprintf(_frelt_, line);
 
                                     break;
@@ -199,27 +199,27 @@ int main(int argc, char* argv[])
 
                 case 1: //01 program relative (cseg/text ??)
                     {
-                        int itemW = GetWord();
+                        int addr = GetWord();
                         char hex4[5];
-                        snprintf(hex4, 4, "%04X", itemW);
+                        snprintf(hex4, 4, "%04X", addr);
                         fprintf(_frelt_, "*RP %s\n", hex4);
                         break;
                     }
 
                 case 2: //10 data relative (dseg/data)
                     {
-                        int itemW = GetWord();
+                        int addr = GetWord();
                         char hex4[5];
-                        snprintf(hex4, 4, "%04X", itemW);
+                        snprintf(hex4, 4, "%04X", addr);
                         fprintf(_frelt_, "*RD %s\n", hex4);
                         break;
                     }
 
                 case 3: //11 common relative (??? related ONLY to common BLOCK ???
                     {
-                        int itemW = GetWord();
+                        int addr = GetWord();
                         char hex4[5];
-                        snprintf(hex4, 4, "%04X", itemW);
+                        snprintf(hex4, 4, "%04X", addr);
                         fprintf(_frelt_, "*RC %s\n", hex4);
                         break;
                     }
@@ -282,7 +282,8 @@ int GetWord()
     bit = fgetc(_frelb_); itemW |= bit; itemW<<=1; i++;
     bit = fgetc(_frelb_); itemW |= bit; itemW<<=1; i++;
     bit = fgetc(_frelb_); itemW |= bit; i++;
-    return itemW;
+    int addr = (itemW << 8) & 0xFFFF | (itemW >> 8); //REL is little-endian, real address output !!!
+    return addr;
 }
 
 char GetTypeChar()
