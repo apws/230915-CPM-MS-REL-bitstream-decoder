@@ -154,7 +154,7 @@ int main(int argc, char* argv[])
                                 {
                                     char type = GetTypeChar();
                                     int addr = GetWord();
-                                    snprintf(line, 20, "*SSEG %c %04X\n", type, addr); //or SECTION? //cseg (prog/text) or dseg
+                                    snprintf(line, 20, "*SSECTION %c %04X\n", type, addr); //or SECTION? //cseg (prog/text) or dseg
                                     fprintf(_frelt_, line);
 
                                     break;
