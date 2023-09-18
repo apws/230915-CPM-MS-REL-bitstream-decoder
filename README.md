@@ -53,3 +53,29 @@ https://github.com/Konamiman/Nestor80/blob/master/docs/LanguageReference.md
 
 yes, here is REL format described in greater detail, as Nestor80 bases on it:
 https://github.com/Konamiman/Nestor80/blob/master/docs/RelocatableFileFormat.md
+
+
+also interesting resource about REL + PRL / SPR support in z88dk:
+https://github.com/z88dk/z88dk/issues/935###
+
+
+next interesting generic support in FUZIX:
+https://github.com/EtchedPixels/FUZIX/issues/649
+
+
+LINKPRL simple linker, maybe rather directly in ASMX? target FUZIX?
+http://www.znode51.de/articles/tcj/hal/linkprl.txt
+
+
+rel2z80 tool:
+https://github.com/z88dk/z88dk/issues/243
+
+
+MISOSYS UNREL tool:
+https://www.tim-mann.org/trs80/doc/unrel.pdf
+
+
+something slightly related to banking/pages in RomWBW:
+https://github.com/wwarthen/RomWBW/issues/131
+
+
