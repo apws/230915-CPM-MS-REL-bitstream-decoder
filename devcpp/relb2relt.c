@@ -75,7 +75,7 @@ int main(int argc, char* argv[])
                             case 0: //0000
                                 {
                                     char* name = GetName();
-                                    fprintf(_frelt_, "*SPUBLIC %s\n", name); //or DECLARE/SYMBOL? //just after the module name at the begin
+                                    fprintf(_frelt_, "*SGLOBL %s\n", name); //or DECLARE/SYMBOL? //just after the module name at the begin
                                     break;
                                 }
                             case 1: //0001
@@ -123,7 +123,7 @@ int main(int argc, char* argv[])
                                     char type = GetTypeChar();
                                     int addr = GetWord();
                                     char* name = GetName();
-                                    snprintf(line, 40, "*SGLOBL %-7s %c %04X\n", name, type, addr); //or PUBLIC? //at the end, for each public
+                                    snprintf(line, 40, "*SPUBLIC %-7s %c %04X\n", name, type, addr); //unified with new zmac listing symbol-table //at the end, for each public
                                     fprintf(_frelt_, line);
 
                                     break;
