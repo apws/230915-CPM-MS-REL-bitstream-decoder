@@ -27,7 +27,7 @@ https://seasip.info/Cpm/rel.html
  - 08 *S8 UNUSED
 
  - 09 *SOFFSET t nnnn      - offset for next chained 16bit item
- - 10 *SDATSSIZE t nnnn    - data section/segment size
+ - 10 *SDATASIZE t nnnn    - data section/segment size
  - 11 *SSECTION t nnnn     - section begin (P=cseg, D=dseg, A=aseg)
  - 12 *SLOCAL t nnnn       - ??? ... never shown in CP/M file, yet; purpose?
  - 13 *SCODESIZE t nnnn    - code/text section/segment size
