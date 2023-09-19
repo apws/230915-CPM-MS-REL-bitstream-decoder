@@ -33,7 +33,8 @@ int main(int argc, char* argv[])
     size = ftell(_frel_);
     fseek(_frel_, 0L, SEEK_SET);
 
-    if (_frel_ == NULL) {
+    if (_frel_ == NULL)
+    {
         return 1;
     }
 
@@ -43,12 +44,12 @@ int main(int argc, char* argv[])
         bit = 128;
         while (bit > 0)
         {
-          value = bit & byte;
-          if (value)
-            fputc((char)01, _frelb_);
-          else
-            fputc((char)00, _frelb_);
-          bit = bit >> 1;
+            value = bit & byte;
+            if (value)
+                fputc((char)01, _frelb_);
+            else
+                fputc((char)00, _frelb_);
+            bit = bit >> 1;
         }
         i++;
     }
