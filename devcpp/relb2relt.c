@@ -125,7 +125,7 @@ int main(int argc, char* argv[])
                             char type = GetTypeChar();
                             int addr = GetWord();
                             char* name = GetName();
-                            snprintf(line, 40, "*SCOMMSIZE %-7s %c %04X\n", name, type, addr); // common BLOCK size
+                            snprintf(line, 40, "*SCOMMSIZE %-7s %c %04X\n", name, type, addr); // common named BLOCK size
                             fprintf(_frelt_, line);
                             break;
                         }
