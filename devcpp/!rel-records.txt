@@ -7,30 +7,29 @@ https://seasip.info/Cpm/rel.html
 - *Sxxx is easily findable
 
 
-00 *RB nn         - Regular Byte
-01 *RP nnnn       - Regular Program relaive
-02 *RD nnnn       - Regular Data relative
-03 *RC nnnn       - Regular Common relative
+ - 00 *RB nn         - Regular Byte
+ - 01 *RP nnnn       - Regular Program relative
+ - 02 *RD nnnn       - Regular Data relative
+ - 03 *RC nnnn       - Regular Common relative
 
 
-00 *SPUBLIC aaaaaaaa    - ???
-01 *SCOMMON aaaaaaaa    - ??? shared? sseg?
-02 *SMODULE aaaaaaaa    - ??? module start
+ - 00 *SGLOBAL aaaaaaaa    - symbol declaration (at the module begin)
+ - 01 *SCOMMON aaaaaaaa    - common block start/name
+ - 02 *SMODULE aaaaaaaa    - module start/name
 
-03 *S3 UNUSED
-04 *S4 UNUSED
+ - 03 *S3 UNUSED
+ - 04 *S4 UNUSED
 
-05 *SCOMMSIZE t nnnn aaaaaaaa   - ??? shared? sseg?
-06 *SEXTRN t nnnn aaaaaaaa      - ???
-07 *SGLOBL t nnnn aaaaaaaa      - ???
+ - 05 *SCOMMSIZE t nnnn aaaaaaaa   - common block size
+ - 06 *SEXTERN t nnnn aaaaaaaa     - "EXTRN" in symbol table (at the module end)
+ - 07 *SPUBLIC t nnnn aaaaaaaa     - "PUBLIC" in symbol table (at the module end)
 
-08 *S8 UNUSED
+ - 08 *S8 UNUSED
 
-09 *SOFFSET t nnnn      - ???
-10 *SDATSSIZE t nnnn    - ???
-11 *SSEG t nnnn         - ???
-12 *SLOCAL t nnnn       - ??? (really?)
-13 *SCODESIZE t nnnn    - ??? (prog/text ?)
-14 *SEND t nnnn         - ??? module end
-15 *SEOF                - ???
-
+ - 09 *SOFFSET t nnnn      - offset for next chained 16bit item
+ - 10 *SDATSSIZE t nnnn    - data section/segment size
+ - 11 *SSECTION t nnnn     - section begin (P=cseg, D=dseg, A=aseg)
+ - 12 *SLOCAL t nnnn       - ??? ... never shown in CP/M file, yet; purpose?
+ - 13 *SCODESIZE t nnnn    - code/text section/segment size
+ - 14 *SEND t nnnn         - module end
+ - 15 *SEOF                - ??? ... never shown in CP/M file; something unclear? diffs after *SEND !
