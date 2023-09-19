@@ -20,9 +20,9 @@ https://seasip.info/Cpm/rel.html
  - 03 *S3 UNUSED
  - 04 *S4 UNUSED
 
- - 05 *SCOMMSIZE t nnnn aaaaaaaa   - common block size
- - 06 *SEXTERN t nnnn aaaaaaaa     - "EXTRN" in symbol table (at the module end)
- - 07 *SPUBLIC t nnnn aaaaaaaa     - "PUBLIC" in symbol table (at the module end)
+ - 05 *SCOMMSIZE aaaaaaaa t nnnn   - common block size
+ - 06 *SEXTERN aaaaaaaa t nnnn     - "EXTRN" in symbol table (at the module end)
+ - 07 *SPUBLIC aaaaaaaa t nnnn     - "PUBLIC" in symbol table (at the module end)
 
  - 08 *S8 UNUSED
 
