@@ -4,6 +4,8 @@ rel2relb.c IN.rel OUT.relb - converts REL bitstream to bytestream
 
 relb2relt.c IN.relb OUT.relt - converts REL bytestream to quickly drafted text format according to spec
 
+- currently, I think will make these integrated using single tmp file and to be really useable as REL comparison tool will be good to have normalized symbol tables by sorting them; then its easy to do automated comparisons;
+
 ---
 
 example result is mostly in BIOSKRNL.RELT
