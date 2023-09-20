@@ -51,34 +51,46 @@ https://seasip.info/Cpm/rel.html
 ---
 
 interesting resource, Nestor80 assmebler in C#:
-https://github.com/Konamiman/Nestor80/blob/master/docs/LanguageReference.md
+ - https://github.com/Konamiman/Nestor80/blob/master/docs/LanguageReference.md
 
 
 yes, here is REL format described in greater detail, as Nestor80 bases on it:
-https://github.com/Konamiman/Nestor80/blob/master/docs/RelocatableFileFormat.md
+ - https://github.com/Konamiman/Nestor80/blob/master/docs/RelocatableFileFormat.md
 
 
 also interesting resource about REL + PRL / SPR support in z88dk:
-https://github.com/z88dk/z88dk/issues/935###
+ - https://github.com/z88dk/z88dk/issues/935###
 
 
 next interesting generic support in FUZIX:
-https://github.com/EtchedPixels/FUZIX/issues/649
+ - https://github.com/EtchedPixels/FUZIX/issues/649
+ - https://github.com/EtchedPixels/FUZIX/issues/850
+ - https://sourceforge.net/p/sdcc/mailman/message/36897075/
 
 
 LINKPRL simple linker, maybe rather directly in ASMX? target FUZIX?
-http://www.znode51.de/articles/tcj/hal/linkprl.txt
+ - http://www.znode51.de/articles/tcj/hal/linkprl.txt
 
 
-rel2z80 tool:
-https://github.com/z88dk/z88dk/issues/243
+rel2z80 tool and all things z88dk:
+ - https://github.com/z88dk/z88dk/issues/243
+ - https://github.com/z88dk/z88dk/wiki/relformat
+ - https://github.com/z88dk/z88dk/issues/342
+ - https://github.com/z88dk/z88dk/issues/1578
+ - https://github.com/z88dk/z88dk/issues/13
 
 
 MISOSYS UNREL tool:
-https://www.tim-mann.org/trs80/doc/unrel.pdf
+ - https://www.tim-mann.org/trs80/doc/unrel.pdf
 
 
 something slightly related to banking/pages in RomWBW:
-https://github.com/wwarthen/RomWBW/issues/131
+ - https://github.com/wwarthen/RomWBW/issues/131
 
 
+IEEE 695 (MUFOM) - similar idea?
+https://www.z88dk.org/forum/viewtopic.php?p=14604
+
+
+COMMON, some old heritage of Fortran?
+https://binarydodo.wordpress.com/2016/05/09/investigating-linking-with-common-symbols-in-elf/
